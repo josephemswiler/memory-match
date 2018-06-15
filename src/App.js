@@ -1,21 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Nav from './components/nav'
+import Grid from './components/grid'
+import './App.css'
+
+// $.fn.extend({
+//   animateCss: function(animationName, callback) {
+//     var animationEnd = (function(el) {
+//       var animations = {
+//         animation: 'animationend',
+//         OAnimation: 'oAnimationEnd',
+//         MozAnimation: 'mozAnimationEnd',
+//         WebkitAnimation: 'webkitAnimationEnd',
+//       }
+
+//       for (var t in animations) {
+//         if (el.style[t] !== undefined) {
+//           return animations[t]
+//         }
+//       }
+//     })(document.createElement('div'))
+
+//     this.addClass('animated ' + animationName).one(animationEnd, function() {
+//       $(this).removeClass('animated ' + animationName)
+
+//       if (typeof callback === 'function') callback()
+//     })
+
+//     return this
+//   },
+// })
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className="text-center">
+       <Nav /> 
+        <header className="app-header">
+          <h1 className="app-title">Find the superhero pairs!</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Grid />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
