@@ -12,13 +12,13 @@ export default class nav extends Component {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#"><i class="fab fa-linkedin"></i></a>
+              <a className="nav-link" href="#"><i className="fab fa-linkedin"></i></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#"><i class="fab fa-github-square"></i></a>
+              <a className="nav-link" href="#"><i className="fab fa-github-square"></i></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#"><i class="fas fa-envelope-square"></i></a>
+              <a className="nav-link" href="#"><i className="fas fa-envelope-square"></i></a>
             </li>
           </ul>
         </div>
