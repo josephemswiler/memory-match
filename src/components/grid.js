@@ -6,13 +6,10 @@ export default class grid extends Component {
   constructor(props) {
     super(props)
 
-    console.log(props)
-
     this.state = { 
       randArr: props.arr,
       firstGuess: null,
       secondGuess: null,
-      // guesses: props.guesses
     }
   }
   
