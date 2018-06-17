@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Blank from '../images/q-mark.svg'
 import './card.css'
 
-
 export default class card extends Component {
   constructor(props) {
     super(props)
@@ -10,19 +9,17 @@ export default class card extends Component {
     this.state = {
       src: Blank,
       index: this.props.id,
-      selected: this.props.show,
+      selected: this.props.show
     } 
   }
 
-
-
   componentDidUpdate(prevProps) { 
     if ( prevProps.image !== this.props.image ) {
-    this.setState({ 
-      src: this.props.image,
-      selected: this.props.show
-    })
-  }
+      this.setState({ 
+        src: this.props.image,
+        selected: this.props.show
+      })
+    }
   }
   
   render() {

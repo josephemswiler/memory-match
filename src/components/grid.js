@@ -12,66 +12,57 @@ export default class grid extends Component {
       randArr: props.arr,
       firstGuess: null,
       secondGuess: null,
-    }
-  }
-
-
-  trackGuess = idx => {
-    this.state.guesses.push(idx)
-    // console.log(this.state.randArr[idx])
-    if (!this.state.firstGuess) {
-      this.setState({ firstGuess: idx })
-      const arr = this.state.randArr
-      arr[idx].show = true
-      this.setState({ randArr: arr })
-    } else if (!this.state.secondGuess) {
-      this.setState({ secondGuess: idx })
-      const arr = this.state.randArr
-      arr[idx].show = true
-      this.setState({ randArr: arr })
-    } else {
-      
-      this.setState({ guesses: null })
-
+      // guesses: props.guesses
     }
   }
   
   handleClick = idx => {
+    const arr = this.state.randArr
+    const guess = {
+      name: arr[idx].name,
+      arrIndex: idx
+    }
+
+    if (arr[idx].show)
+      return
+
+    this.props.increment()
 
     if (!this.state.firstGuess) {
 
-      this.setState({ firstGuess: idx })
-      const arr = this.state.randArr
       arr[idx].show = true
-      this.setState({ randArr: arr })
-
-    } else if (!this.state.secondGuess) {
-
-      this.setState({ secondGuess: idx })
-      const arr = this.state.randArr
-      arr[idx].show = true
-      this.setState({ randArr: arr })
-
-    } else {
-      const arr = this.state.randArr
-      // arr.forEach( item => item.show = false)
-
-       if( this.state.firstGuess.name !== this.state.secondGuess.name ) {
-         
-        for ( let i in arr ) {
-          if ( [this.state.firstGuess.id, this.state.secondGuess.id].includes(arr[i].id)) {
-            arr[i].show = false
-          }
-        }
-       }
-
-      
 
       this.setState({ 
         randArr: arr,
-        firstGuess: null,
+        firstGuess: guess
+      })
+
+    } else if (!this.state.secondGuess) {
+
+      if (idx === this.state.firstGuess.arrIndex)
+        return
+
+      arr[idx].show = true
+
+      this.setState({ 
+        randArr: arr,
+        secondGuess: guess
+      })
+
+    } else {
+
+      if ( this.state.firstGuess.name !== this.state.secondGuess.name ) {
+        arr[this.state.firstGuess.arrIndex].show = false 
+        arr[this.state.secondGuess.arrIndex].show = false 
+      }
+
+      arr[idx].show = true
+
+      this.setState({ 
+        randArr: arr,
+        firstGuess: guess,
         secondGuess: null,
-       })
+      })
     }
   }
 

@@ -85,11 +85,13 @@ class App extends Component {
 
     this.state = { 
       arr: singleArr
-            .concat(
-              singleArr.map(
-                obj => ({...obj})
-              )
-            ).map( (item, idx) => { item.id = idx; return item }),
+        .concat(
+          singleArr.map(
+            obj => ({...obj})
+          )
+        )
+        .map( (item, idx) => { item.id = idx; return item }),
+      guesses: 0
     }
   }
 
@@ -108,14 +110,19 @@ class App extends Component {
     return arr
   }
 
+  increment = () => {
+    let count = this.state.guesses
+    this.setState({ guesses: count++ })
+  }
+
   render() {
     return (
       <div className="text-center mb-1">
        <Nav /> 
         <header className="app-header p-3 mb-1">
-          <h1 className="app-title">Find the superhero pairs!</h1>
+          <h1 className="app-title">{this.state.guesses}</h1>
         </header>
-        <Grid arr={this.fisherYates(this.state.arr)} />
+        <Grid arr={this.fisherYates(this.state.arr)} increment={this.increment}/>
       </div>
     )
   }
