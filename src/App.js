@@ -15,107 +15,107 @@ import Punisher from './images/punisher.svg'
 import Superman from './images/superman.svg'
 import Thor from './images/thor.svg'
 import Wolverine from './images/wolverine.svg'
-import Blank from './images/q-mark.svg'
 
-let superheroes = [
+let singleArr = [
   {
     name: 'Batman',
     image: Batman,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Spiderman',
     image: Spiderman,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Captain America',
     image: CaptAmerica,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Dare Devil',
     image: DareDevil,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Flash',
     image: Flash,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Green Lantern',
     image: GreenLantern,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Hulk',
     image: Hulk,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Nick Fury',
     image: NickFury,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Punisher',
     image: Punisher,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Superman',
     image: Superman,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Thor',
     image: Thor,
-    defaultImage: Blank
+    show: false
   },
   {
     name: 'Wolverine',
     image: Wolverine,
-    defaultImage: Blank
+    show: false
   }
 ]
 
-// $.fn.extend({
-//   animateCss: function(animationName, callback) {
-//     var animationEnd = (function(el) {
-//       var animations = {
-//         animation: 'animationend',
-//         OAnimation: 'oAnimationEnd',
-//         MozAnimation: 'mozAnimationEnd',
-//         WebkitAnimation: 'webkitAnimationEnd',
-//       }
-
-//       for (var t in animations) {
-//         if (el.style[t] !== undefined) {
-//           return animations[t]
-//         }
-//       }
-//     })(document.createElement('div'))
-
-//     this.addClass('animated ' + animationName).one(animationEnd, function() {
-//       $(this).removeClass('animated ' + animationName)
-
-//       if (typeof callback === 'function') callback()
-//     })
-
-//     return this
-//   },
-// })
-
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { 
+      arr: singleArr
+            .concat(
+              singleArr.map(
+                obj => ({...obj})
+              )
+            ).map( (item, idx) => { item.id = idx; return item }),
+    }
+  }
+
+  fisherYates = arr => {
+    let index = arr.length
+    let tempVal
+    let randIndex
+
+    while (0 !== index) {
+        randIndex = Math.floor(Math.random() * index)
+        index -= 1
+        tempVal = arr[index]
+        arr[index] = arr[randIndex]
+        arr[randIndex] = tempVal
+    }
+    return arr
+  }
+
   render() {
     return (
-      <div className="text-center">
+      <div className="text-center mb-1">
        <Nav /> 
         <header className="app-header p-3 mb-1">
           <h1 className="app-title">Find the superhero pairs!</h1>
         </header>
-        <Grid arr={superheroes} />
+        <Grid arr={this.fisherYates(this.state.arr)} />
       </div>
     )
   }
