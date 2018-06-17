@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Blank from '../images/q-mark.svg'
 import './card.css'
 
 export default class card extends Component {
@@ -7,7 +6,7 @@ export default class card extends Component {
     super(props)
     
     this.state = {
-      src: Blank,
+      src: props.image,
       index: this.props.id,
       selected: this.props.show
     } 

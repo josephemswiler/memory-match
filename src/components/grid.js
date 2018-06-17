@@ -46,6 +46,13 @@ export default class grid extends Component {
         secondGuess: guess
       })
 
+      let correct = 0
+      arr.forEach( item => item.show ? correct++ : false)
+
+      if (correct === arr.length)
+        this.props.gameOver()
+
+
     } else {
 
       if ( this.state.firstGuess.name !== this.state.secondGuess.name ) {

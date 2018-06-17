@@ -3,13 +3,14 @@ nav {
 }
 
 .navbar-brand {
-    font-family: 'Codystar', sans-serif;
-    color: #fff;
+    font-family: 'Bangers', sans-serif;
+    color: #fff !important;
     position: absolute;
     left: 0;
     top: 0;
     font-size: 30px;
     width: 100%;
+    letter-spacing: 4px;
 }
 
 .navbar-toggler,
