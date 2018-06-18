@@ -17,3 +17,9 @@ nav {
 .navbar-collapse {
     z-index: 2;
 }
+
+.btn-counter {
+    position: absolute;
+    right: 15px;
+    top: 4px;
+}
