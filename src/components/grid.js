@@ -50,7 +50,7 @@ export default class grid extends Component {
       arr.forEach( item => item.show ? correct++ : false)
 
       if (correct === arr.length)
-        this.props.gameOver()
+        this.props.endGame()
 
 
     } else {

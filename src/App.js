@@ -3,6 +3,7 @@ import Nav from './components/nav'
 import Grid from './components/grid'
 import SuperheroArr from './components/superhero-array'
 import Jumbotron from './components/jumbotron'
+import Modal from './components/modal'
 import './App.css'
 
 class App extends Component {
@@ -18,7 +19,8 @@ class App extends Component {
           )
         )
         .map( (item, idx) => { item.id = idx; return item })),
-      guesses: 0
+      guesses: 0,
+      gameOver: false
     }
   }
 
@@ -42,17 +44,16 @@ class App extends Component {
     this.setState({ guesses: count })
   }
 
-  gameOver = () => {
-    let count = this.state.guesses
-    this.setState({ guesses: `You won in ${count} guesses!` })
+  endGame = () => {
+    this.setState({ gameOver: true })
   }
 
   render() {
     return (
       <div className="text-center mb-1">
        <Nav guesses={this.state.guesses} /> 
-        <Jumbotron />
-        <Grid arr={this.state.arr} increment={this.increment} gameOver={this.gameOver}/>
+        <Jumbotron guesses={this.state.guesses} gameOver={this.state.gameOver} />
+        <Grid arr={this.state.arr} increment={this.increment} endGame={this.endGame}/>
       </div>
     )
   }

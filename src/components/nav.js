@@ -47,7 +47,7 @@ export default class nav extends Component {
             </li>
           </ul>
         </div>
-        <button className="btn btn-outline-light btn-lg btn-counter">{this.renderGuesses()}</button>
+        <button className="btn btn-outline-light btn-lg btn-counter pl-3 pr-3">{this.renderGuesses()}</button>
       </nav>
     )
   }
