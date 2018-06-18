@@ -18,8 +18,7 @@ class App extends Component {
           )
         )
         .map( (item, idx) => { item.id = idx; return item })),
-      guesses: 0,
-      welcome: 'Match the superheroes pairs!'
+      guesses: 0
     }
   }
 
@@ -51,11 +50,7 @@ class App extends Component {
   render() {
     return (
       <div className="text-center mb-1">
-       <Nav /> 
-        {/* <header className="app-header p-3 mb-1">
-          <h1 className="app-title">{this.state.guesses ? this.state.guesses : this.state.welcome}</h1>
-          <button type="button" class="btn btn-light">Play</button>
-        </header> */}
+       <Nav guesses={this.state.guesses} /> 
         <Jumbotron />
         <Grid arr={this.state.arr} increment={this.increment} gameOver={this.gameOver}/>
       </div>

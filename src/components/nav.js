@@ -2,6 +2,31 @@ import React, { Component } from 'react'
 import './nav.css'
 
 export default class nav extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      guesses: props.guesses
+    }
+  }
+
+  componentDidUpdate(prevProps) { 
+    if ( prevProps.guesses !== this.props.guesses ) {
+      this.setState({ 
+        guesses: this.props.guesses
+      })
+    }
+  }
+
+  renderGuesses = () => {
+    console.log(this.state.guesses)
+    if (!this.state.guesses)
+      return '00'
+  
+    if (parseInt(this.state.guesses) < 10) 
+      return `0${this.state.guesses}`
+    return this.state.guesses
+  }
   render() {
     return (
         <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -22,6 +47,7 @@ export default class nav extends Component {
             </li>
           </ul>
         </div>
+        <button className="btn btn-outline-light btn-lg btn-counter">{this.renderGuesses()}</button>
       </nav>
     )
   }

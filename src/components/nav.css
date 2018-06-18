@@ -7,7 +7,7 @@ nav {
     color: #fff !important;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 6px;
     font-size: 30px;
     width: 100%;
     letter-spacing: 4px;
@@ -16,4 +16,8 @@ nav {
 .navbar-toggler,
 .navbar-collapse {
     z-index: 2;
+}
+
+.btn-counter {
+    width: 56px;
 }

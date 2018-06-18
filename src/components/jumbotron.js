@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import './jumbotron.css'
 
 export default class jumbotron extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      
+    }
+  }
+
+
   render() {
     return (
       <header className="app-header p-3 mb-1">
         <div className="jumbotron m-5">
-          <h1 className="display-4">Hello, world!</h1>
-          <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <h1 className="display-4">Superpower? Memory.</h1>
+          <p className="lead">The objective of this game is to find the superhero pairs in the fewest amount of guesses!</p>
           <hr className="my-4" />
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
           <p className="lead">
-            <a className="btn btn-light btn-lg pill-btn w-50" href="#" role="button">Play Now!</a>
+            <a className="btn btn-light btn-lg pill-btn pl-sm-5 pr-sm-5" href="#" role="button" onClick={this.playGame}><i className="fas fa-angle-down"></i> Play Now!</a>
           </p>
         </div>
       </header>
