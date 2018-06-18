@@ -72,15 +72,15 @@ export default class grid extends Component {
 
   render() {
     return (
-      <div className="div container">
-      <div className="row">
-        {this.state.randArr.map( (item, idx) => (
-          <div className="col-md-2 col-3 p-1" key={idx} id={item.id}>
-            <Card  
-            id={idx} image={ item.show ? item.image : Blank} key={item.image} show={item.show} handleClick={this.handleClick} />
-          </div>
-        ))}
-      </div>
+      <div className="div container grid" name="grid">
+        <div className="row grid-row">
+          {this.state.randArr.map( (item, idx) => (
+            <div className="col-md-2 col-3 p-1" key={idx} id={item.id}>
+              <Card  
+              id={idx} image={ item.show ? item.image : Blank} key={item.image} show={item.show} handleClick={this.handleClick} />
+            </div>
+          ))}
+        </div>
     </div>
     )
   }

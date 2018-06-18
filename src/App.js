@@ -3,7 +3,7 @@ import Nav from './components/nav'
 import Grid from './components/grid'
 import SuperheroArr from './components/superhero-array'
 import Jumbotron from './components/jumbotron'
-import Modal from './components/modal'
+import * as Scroll from 'react-scroll';
 import './App.css'
 
 class App extends Component {
@@ -24,6 +24,18 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('load', this.smoothScrollTop)
+ }
+
+ smoothScrollTop = () => {
+  Scroll.animateScroll.scrollToTop({
+    duration: 1000,
+    delay: 100,
+    smooth: true
+  })
+ }
+
   fisherYates = arr => {
     let index = arr.length
     let tempVal
@@ -39,6 +51,15 @@ class App extends Component {
     return arr
   }
 
+  playGame = () => {
+    Scroll.scroller.scrollTo('grid', {
+      duration: 1000,
+      delay: 100,
+      smooth: true,
+      offset: -68
+    })
+  }
+
   increment = () => {
     let count = this.state.guesses + 1
     this.setState({ guesses: count })
@@ -46,14 +67,17 @@ class App extends Component {
 
   endGame = () => {
     this.setState({ gameOver: true })
+    this.smoothScrollTop()
   }
 
   render() {
     return (
       <div className="text-center mb-1">
        <Nav guesses={this.state.guesses} /> 
-        <Jumbotron guesses={this.state.guesses} gameOver={this.state.gameOver} />
-        <Grid arr={this.state.arr} increment={this.increment} endGame={this.endGame}/>
+        <Jumbotron guesses={this.state.guesses} gameOver={this.state.gameOver} playGame={this.playGame} />
+        <div className="grid-wrapper">
+        <Grid name="grid" arr={this.state.arr} increment={this.increment} endGame={this.endGame} />
+        </div>
       </div>
     )
   }

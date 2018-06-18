@@ -19,7 +19,6 @@ export default class nav extends Component {
   }
 
   renderGuesses = () => {
-    console.log(this.state.guesses)
     if (!this.state.guesses)
       return '00'
   

@@ -20,12 +20,12 @@ export default class jumbotron extends Component {
     }
   }
 
-  playGame = () => {
-    
+  startClick = () => {
+    this.props.playGame()
   }
 
   gameMessage = () => {
-    if (!this.state.gameOver) {
+    if (this.state.gameOver) {
       return (
         <div className="jumbotron m-5">
           <h1 className="display-4">Congrats!</h1>
@@ -43,7 +43,7 @@ export default class jumbotron extends Component {
           <p className="lead">The objective of this game is to find the superhero pairs in the fewest amount of guesses!</p>
           <hr className="my-4" />
           <p className="lead">
-            <a className="btn btn-light btn-lg pill-btn pl-sm-5 pr-sm-5" href="#" role="button" onClick={this.playGame}><i className="fas fa-angle-down"></i> Play Now!</a>
+            <a className="btn btn-light btn-lg pill-btn pl-sm-5 pr-sm-5" href="#" role="button" onClick={this.startClick}><i className="fas fa-angle-down"></i> Play Now!</a>
           </p>
         </div>
       )
