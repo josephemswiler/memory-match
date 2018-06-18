@@ -1,0 +1,25 @@
+nav {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+}
+
+.navbar-brand {
+    font-family: 'Bangers', sans-serif;
+    color: #fff !important;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-size: 30px;
+    width: 100%;
+    letter-spacing: 4px;
+}
+
+.navbar-toggler,
+.navbar-collapse {
+    z-index: 2;
+}
+
+.btn-counter {
+    position: absolute;
+    right: 15px;
+    top: 4px;
+}
