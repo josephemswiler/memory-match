@@ -56,7 +56,7 @@ class App extends Component {
       duration: 1000,
       delay: 100,
       smooth: true,
-      offset: -68
+      offset: -60
     })
   }
 
