@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactTooltip from 'react-tooltip'
 import './nav.css'
 
 export default class nav extends Component {
@@ -42,7 +43,8 @@ export default class nav extends Component {
               <a className="nav-link" href="https://github.com/josephemswiler"><i className="fab fa-github-square"></i></a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="mailto:josephemswiler@gmail.com"><i className="fas fa-envelope-square"></i></a>
+              <a className="nav-link" href="mailto:josephemswiler@gmail.com" data-tip="josephemswiler@gmail.com"><i className="fas fa-envelope-square"></i></a>
+              <ReactTooltip place="bottom" type="dark" effect="solid" />
             </li>
           </ul>
         </div>

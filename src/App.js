@@ -70,13 +70,25 @@ class App extends Component {
     this.smoothScrollTop()
   }
 
+  resetGame = () => {
+    const resetArr = this.state.arr
+    resetArr.forEach( item => item.show = false )
+    this.fisherYates( resetArr )
+    this.setState({ 
+      gameOver: false,
+      arr: resetArr,
+      guesses: 0
+    })
+    this.playGame()
+  }
+
   render() {
     return (
       <div className="text-center mb-1">
-       <Nav guesses={this.state.guesses} /> 
-        <Jumbotron guesses={this.state.guesses} gameOver={this.state.gameOver} playGame={this.playGame} />
+        <Nav guesses={this.state.guesses} /> 
+        <Jumbotron guesses={this.state.guesses} gameOver={this.state.gameOver} playGame={this.playGame} resetGame={this.resetGame} />
         <div className="grid-wrapper">
-        <Grid name="grid" arr={this.state.arr} increment={this.increment} endGame={this.endGame} />
+          <Grid name="grid" arr={this.state.arr} increment={this.increment} endGame={this.endGame} />
         </div>
       </div>
     )
